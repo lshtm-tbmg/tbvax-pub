@@ -1,0 +1,52 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+   
+   
+   
+   
+   
+   
+$$
+\begin{bmatrix}
+dA_0B_0\\ 
+dA_0B_1\\ 
+dA_0B_2\\ 
+dA_1B_0\\ 
+dA_1B_1\\ 
+dA_1B_2\\ 
+dA_2B_0\\ 
+dA_2B_1\\ 
+dA_2B_2\\ 
+\end{bmatrix}
+ =
+\begin{bmatrix}
+-k_{Av}-k_{Bv}&0&0&0&0&0&0&0&0\\
+k_{Bv}&-k_{Av}-k_{Bw}&0&0&0&0&0&0&0\\
+0&k_{Bw}&-k_{Av}&0&0&0&0&0&0\\
+k_{Av}&0&0&-k_{Aw}-k_{Bv}&0&0&0&0&0\\
+0&k_{Av}&0&k_{Bv}&-k_{Aw}-k_{Bw}&0&0&0&0\\
+0&0&k_{Av}&0&k_{Bw}&-k_{Aw}&0&0&0\\
+0&0&0&k_{Aw}&0&0&-k_{Bv}&0&0\\
+0&0&0&0&k_{Aw}&0&k_{Bv}&-k_{Bw}&0\\
+0&0&0&0&0&k_{Aw}&0&k_{Wb}&0\\
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+A_0B_0\\ 
+A_0B_1\\ 
+A_0B_2\\ 
+A_1B_0\\ 
+A_1B_1\\ 
+A_1B_2\\ 
+A_2B_0\\ 
+A_2B_1\\ 
+A_2B_2\\ 
+\end{bmatrix}$$

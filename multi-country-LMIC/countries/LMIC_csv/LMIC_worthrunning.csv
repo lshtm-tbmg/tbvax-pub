@@ -1,0 +1,116 @@
+﻿Country,CountryCode,Number
+Afghanistan,AFG,1
+Angola,AGO,2
+Albania,ALB,3
+Argentina,ARG,4
+Armenia,ARM,5
+Azerbaijan,AZE,6
+Burundi,BDI,7
+Benin,BEN,8
+Burkina Faso,BFA,9
+Bangladesh,BGD,10
+Bulgaria,BGR,11
+Bosnia and Herzegovina,BIH,12
+Belarus,BLR,13
+Bolivia,BOL,14
+Brazil,BRA,15
+Bhutan,BTN,16
+Botswana,BWA,17
+Central African Republic,CAF,18
+China,CHN,19
+Cote d'Ivoire,CIV,20
+Cameroon,CMR,21
+Colombia,COL,22
+Cabo Verde,CPV,23
+Costa Rica,CRI,24
+Cuba,CUB,25
+Dominican Republic,DOM,26
+Algeria,DZA,27
+Ecuador,ECU,28
+Egypt Arab Rep.,EGY,29
+Eritrea,ERI,30
+Ethiopia,ETH,31
+Fiji,FJI,32
+Gabon,GAB,33
+Georgia,GEO,34
+Ghana,GHA,35
+Guinea,GIN,36
+The Gambia,GMB,37
+Guinea-Bissau,GNB,38
+Equatorial Guinea,GNQ,39
+Guatemala,GTM,40
+Guyana,GUY,41
+Honduras,HND,42
+Indonesia,IDN,43
+India,IND,44
+Iran Islamic Rep.,IRN,45
+Iraq,IRQ,46
+Jamaica,JAM,47
+Jordan,JOR,48
+Kazakhstan,KAZ,49
+Kenya,KEN,50
+Kyrgyz Republic,KGZ,51
+Cambodia,KHM,52
+Lao PDR,LAO,53
+Liberia,LBR,54
+Libya,LBY,55
+Sri Lanka,LKA,56
+Lesotho,LSO,57
+Morocco,MAR,58
+Moldova,MDA,59
+Madagascar,MDG,60
+Maldives,MDV,61
+Mexico,MEX,62
+North Macedonia,MKD,63
+Mali,MLI,64
+Myanmar,MMR,65
+Montenegro,MNE,66
+Mongolia,MNG,67
+Mozambique,MOZ,68
+Mauritania,MRT,69
+Malawi,MWI,70
+Malaysia,MYS,71
+Namibia,NAM,72
+Niger,NER,73
+Nigeria,NGA,74
+Nicaragua,NIC,75
+Nepal,NPL,76
+Pakistan,PAK,77
+Peru,PER,78
+Philippines,PHL,79
+Papua New Guinea,PNG,80
+Paraguay,PRY,81
+Russian Federation,RUS,82
+Rwanda,RWA,83
+Sudan,SDN,84
+Senegal,SEN,85
+Solomon Islands,SLB,86
+Sierra Leone,SLE,87
+El Salvador,SLV,88
+Serbia,SRB,89
+South Sudan,SSD,90
+Sao Tome and Principe,STP,91
+Suriname,SUR,92
+Eswatini,SWZ,93
+Syrian Arab Republic,SYR,94
+Chad,TCD,95
+Togo,TGO,96
+Thailand,THA,97
+Tajikistan,TJK,98
+Turkmenistan,TKM,99
+Timor-Leste,TLS,100
+Tonga,TON,101
+Tunisia,TUN,102
+Turkey,TUR,103
+Tanzania,TZA,104
+Uganda,UGA,105
+Ukraine,UKR,106
+Uzbekistan,UZB,107
+St. Vincent and the Grenadines,VCT,108
+Venezuela RB,VEN,109
+Vietnam,VNM,110
+Vanuatu,VUT,111
+Yemen Rep.,YEM,112
+South Africa,ZAF,113
+Zambia,ZMB,114
+Zimbabwe,ZWE,115

@@ -1,0 +1,136 @@
+﻿Country,CountryCode,WHOregion,IncomeLevel2019
+Afghanistan,AFG,EMR,LIC
+Angola,AGO,AFR,LMIC
+Albania,ALB,EUR,UMIC
+Argentina,ARG,AMR,UMIC
+Armenia,ARM,EUR,UMIC
+American Samoa,ASM,WPR,UMIC
+Azerbaijan,AZE,EUR,UMIC
+Burundi,BDI,AFR,LIC
+Benin,BEN,AFR,LMIC
+Burkina Faso,BFA,AFR,LIC
+Bangladesh,BGD,SEAR,LMIC
+Bulgaria,BGR,EUR,UMIC
+Bosnia and Herzegovina,BIH,EUR,UMIC
+Belarus,BLR,EUR,UMIC
+Belize,BLZ,AMR,UMIC
+Bolivia,BOL,AMR,LMIC
+Brazil,BRA,AMR,UMIC
+Bhutan,BTN,SEAR,LMIC
+Botswana,BWA,AFR,UMIC
+Central African Republic,CAF,AFR,LIC
+China,CHN,WPR,UMIC
+Côte d'Ivoire,CIV,AFR,LMIC
+Cameroon,CMR,AFR,LMIC
+"Congo, Democratic Republic of the",COD,AFR,LIC
+Congo,COG,AFR,LMIC
+Colombia,COL,AMR,UMIC
+Comoros,COM,AFR,LMIC
+Cabo Verde,CPV,AFR,LMIC
+Costa Rica,CRI,AMR,UMIC
+Cuba,CUB,AMR,UMIC
+Djibouti,DJI,EMR,LMIC
+Dominica,DMA,AMR,UMIC
+Dominican Republic,DOM,AMR,UMIC
+Algeria,DZA,AFR,LMIC
+Ecuador,ECU,AMR,UMIC
+Egypt,EGY,EMR,LMIC
+Eritrea,ERI,AFR,LIC
+Ethiopia,ETH,AFR,LIC
+Fiji,FJI,WPR,UMIC
+Micronesia,FSM,WPR,LMIC
+Gabon,GAB,AFR,UMIC
+Georgia,GEO,EUR,UMIC
+Ghana,GHA,AFR,LMIC
+Guinea,GIN,AFR,LIC
+Gambia,GMB,AFR,LIC
+Guinea-Bissau,GNB,AFR,LIC
+Equatorial Guinea,GNQ,AFR,UMIC
+Grenada,GRD,AMR,UMIC
+Guatemala,GTM,AMR,UMIC
+Guyana,GUY,AMR,UMIC
+Honduras,HND,AMR,LMIC
+Haiti,HTI,AMR,LIC
+Indonesia,IDN,SEAR,UMIC
+India,IND,SEAR,LMIC
+Iran,IRN,EMR,UMIC
+Iraq,IRQ,EMR,UMIC
+Jamaica,JAM,AMR,UMIC
+Jordan,JOR,EMR,UMIC
+Kazakhstan,KAZ,EUR,UMIC
+Kenya,KEN,AFR,LMIC
+Kyrgyz Republic,KGZ,EUR,LMIC
+Cambodia,KHM,WPR,LMIC
+Kiribati,KIR,WPR,LMIC
+Lao People’s Democratic Republic,LAO,WPR,LMIC
+Lebanon,LBN,EMR,UMIC
+Liberia,LBR,AFR,LIC
+Libya,LBY,EMR,UMIC
+St. Lucia,LCA,AMR,UMIC
+Sri Lanka,LKA,SEAR,LMIC
+Lesotho,LSO,AFR,LMIC
+Morocco,MAR,EMR,LMIC
+"Moldova, Republic of",MDA,EUR,LMIC
+Madagascar,MDG,AFR,LIC
+Maldives,MDV,SEAR,UMIC
+Mexico,MEX,AMR,UMIC
+Marshall Islands,MHL,WPR,UMIC
+"Macedonia, North",MKD,EUR,UMIC
+Mali,MLI,AFR,LIC
+Myanmar,MMR,SEAR,LMIC
+Montenegro,MNE,EUR,UMIC
+Mongolia,MNG,WPR,LMIC
+Mozambique,MOZ,AFR,LIC
+Mauritania,MRT,AFR,LMIC
+Malawi,MWI,AFR,LIC
+Malaysia,MYS,WPR,UMIC
+Namibia,NAM,AFR,UMIC
+Niger,NER,AFR,LIC
+Nigeria,NGA,AFR,LMIC
+Nicaragua,NIC,AMR,LMIC
+Nepal,NPL,SEAR,LMIC
+Pakistan,PAK,EMR,LMIC
+Peru,PER,AMR,UMIC
+Philippines,PHL,WPR,LMIC
+Papua New Guinea,PNG,WPR,LMIC
+"Korea, Democratic People’s Republic of",PRK,SEAR,LIC
+Paraguay,PRY,AMR,UMIC
+West Bank and Gaza,PSE,EMR,LMIC
+Russian Federation,RUS,EUR,UMIC
+Rwanda,RWA,AFR,LIC
+Sudan,SDN,EMR,LIC
+Senegal,SEN,AFR,LMIC
+Solomon Islands,SLB,WPR,LMIC
+Sierra Leone,SLE,AFR,LIC
+El Salvador,SLV,AMR,LMIC
+Somalia,SOM,EMR,LIC
+Serbia,SRB,EUR,UMIC
+South Sudan,SSD,AFR,LIC
+São Tomé and Principe,STP,AFR,LMIC
+Suriname,SUR,AMR,UMIC
+Swaziland,SWZ,AFR,LMIC
+Syrian Arab Republic,SYR,EMR,LIC
+Chad,TCD,AFR,LIC
+Togo,TGO,AFR,LIC
+Thailand,THA,SEAR,UMIC
+Tajikistan,TJK,EUR,LIC
+Turkmenistan,TKM,EUR,UMIC
+Timor-Leste,TLS,SEAR,LMIC
+Tonga,TON,WPR,UMIC
+Tunisia,TUN,EMR,LMIC
+Turkey,TUR,EUR,UMIC
+Tuvalu,TUV,WPR,UMIC
+"Tanzania, United Republic of",TZA,AFR,LMIC
+Uganda,UGA,AFR,LIC
+Ukraine,UKR,EUR,LMIC
+Uzbekistan,UZB,EUR,LMIC
+St. Vincent and the Grenadines,VCT,AMR,UMIC
+Venezuela,VEN,AMR,UMIC
+Vietnam,VNM,WPR,LMIC
+Vanuatu,VUT,WPR,LMIC
+Samoa,WSM,WPR,UMIC
+Kosovo,XKX,EUR,UMIC
+Yemen,YEM,EMR,LIC
+South Africa,ZAF,AFR,UMIC
+Zambia,ZMB,AFR,LMIC
+Zimbabwe,ZWE,AFR,LMIC

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:simpleType name="fraction">
+    <xs:restriction base='xs:double'>
+      <xs:minInclusive value='0.0'/>
+      <xs:maxInclusive value='1.0'/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="rkMethod">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="euler"/>
+      <xs:enumeration value="rk2"/>
+      <xs:enumeration value="rk4"/>
+      <xs:enumeration value="rk23"/>
+      <xs:enumeration value="ode23"/>
+      <xs:enumeration value="rk23bs"/>
+      <xs:enumeration value="rk34f"/>
+      <xs:enumeration value="rk45ck"/>
+      <xs:enumeration value="rk45f"/>
+      <xs:enumeration value="rk45e"/>
+      <xs:enumeration value="rk45dp6"/>
+      <xs:enumeration value="rk45dp7"/>
+      <xs:enumeration value="ode45"/>
+      <xs:enumeration value="rk78f"/>
+      <xs:enumeration value="rk78dp"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TB.Vx.run.specification">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="simulation"/>
+        <xs:element ref="output"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="simulation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="options"/>
+        <xs:element ref="demography"/>
+        <xs:element ref="contact.matrix"/>
+        <xs:element ref="incidence"/>
+        <xs:element ref="seeded.infections"/>
+      </xs:sequence>
+      <xs:attribute name="from.year" use="required" type="xs:integer"/>
+      <xs:attribute name="thru.year" use="required" type="xs:integer"/>
+      <xs:attribute name="dt" default="0.5" type="fraction"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="options">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="numerical.integration"/>
+        <xs:element ref="exceptional.conditions"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="numerical.integration">
+    <xs:complexType>
+      <xs:attribute name="method" default="ode23" type="rkMethod"/>
+      <xs:attribute name="maxsteps" default="5000" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="hmin" default="0.0" type="fraction"/>
+      <xs:attribute name="hini" default="0.2" type="fraction"/>
+      <xs:attribute name="rtol" default="1e-4" type="fraction"/>
+      <xs:attribute name="atol" default="1e-3" type="fraction"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="exceptional.conditions">
+    <xs:complexType>
+      <xs:attribute name="min.value.for.state.var" default="-0.03" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+
+
+  <xs:element name="demography">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="from.data"/>
+        <xs:element ref="from.distribution"/>
+      </xs:choice>
+      <xs:attribute name="country.code" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="from.data">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="population"/>
+        <xs:element ref="birthrate"/>
+        <xs:element ref="mortality"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="from.distribution">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="population"/>
+        <xs:element ref="birthrate"/>
+        <xs:element ref="mortality"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="contact.matrix">
+    <xs:complexType>
+      <xs:attribute name="file" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="incidence">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="data"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="data">
+    <xs:complexType>
+      <xs:attribute name="file" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="seeded.infections">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="TB"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TB">
+    <xs:complexType>
+      <xs:attribute name="age.from" use="required" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="age.thru" use="required" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="fraction" use="required" type="fraction"/>
+      <xs:attribute name="stage" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="output">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="final.population.as.fraction" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="detailed.output" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="incidence.output" minOccurs="0" maxOccurs="1"/>
+        <xs:element ref="summary.output" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="final.population.as.fraction">
+    <xs:complexType>
+      <xs:attribute name="file" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="detailed.output">
+    <xs:complexType>
+      <xs:attribute name="years" use="required" type="xs:string"/>
+      <xs:attribute name="age.group.lower.limits" use="optional" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="incidence.output">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="include"/>
+      </xs:sequence>
+      <xs:attribute name="years" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="include">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="output.dim"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="output.dim">
+  <xs:complexType>
+      <xs:attribute name="name" use="required" type="xs:string"/>
+      <xs:attribute name="transmission" default="false" type="xs:boolean"/>
+      <xs:attribute name="progression" default="false" type="xs:boolean"/>
+      <xs:attribute name="treatment" default="false" type="xs:boolean"/>
+      <xs:attribute name="incidence.from.data" default="false" type="xs:boolean"/>
+  </xs:complexType>
+  </xs:element>  
+  
+  <xs:element name="summary.output">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="aggregate" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+      <xs:attribute name="from.year" use="required" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="thru.year" use="required" type="xs:nonNegativeInteger"/>
+      <xs:attribute name="age.group.lower.limits" use="optional" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="aggregate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="dim"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="dim">
+    <xs:complexType>
+      <xs:attribute name="aggregate" default="true" type="xs:boolean"/>
+      <xs:attribute name="name" use="required" type="xs:string"/>
+      <xs:attribute name="select" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="population">
+    <xs:complexType>
+      <xs:attribute name="countrycode" type="xs:string"/>
+      <xs:attribute name="file" type="xs:string" />
+      <xs:attribute name="total" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="birthrate">
+    <xs:complexType>
+      <xs:attribute name="from.population.data" default="false" type="xs:boolean"/>
+      <xs:attribute name="fraction" type="fraction"/>
+      <xs:attribute name="number" type="xs:integer"/>
+      <xs:attribute name="file" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="mortality">
+    <xs:complexType>
+      <xs:attribute name="from.population.data" default="false" type="xs:boolean"/>
+      <xs:attribute name="file" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
