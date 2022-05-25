@@ -1,0 +1,44 @@
+country,year,xVXa,xSES,xRISK,xHIV,xTB,xtype ,xcause,yVXa,ySES,yRISK,yHIV,yTB,ytype,ycause,fn,age_from,age_thru,value,lo,hi,err,name,type,orig_err
+ZAF,2019.5,all,all,all,all,Ds,stock,NA,all,all,all,all,"Ds,Dc",stock,NA,x/y,15,99,0.577,0.511,0.641,0.065,TB_subclinpr_15_99,ratio,0.065
+ZAF,2019.5,all,high,all,all,"Ds, Dc",stock,NA,all,low ,all,all,"Ds,Dc",stock,NA,x/y,0,99,0.691,0.591,0.791,0.1,TB_prr_0_99,ratio,0.1
+ZAF,2011.5,all,all,all,all,"L0, Ls, Lf",stock,NA,all,all,all,all,all,stock,NA,x/y,0,14,0.27,0.243,0.297,0.027,TB_LTBI_0_14,ratio,0.027
+ZAF,2011.5,all,all,all,all,"L0, Ls, Lf",stock,NA,all,all,all,all,all,stock,NA,x/y,15,39,0.6,0.54,0.66,0.06,TB_LTBI_15_39,ratio,0.06
+ZAF,2019.5,all,all,all,all,"Ds, Dc",stock,NA,all,all,all,all,all,stock,NA,1e5*x/y,0,99,737,580,890,155,TB_prev_est_0_99,ratio,155
+ZAF,2000.5,all,all,all,all,Ds,inflow,"Tm,TBp, TBtr_LfLsDs, TBtr_RDs",all,all,all,all,all,stock,NA,1e5*x/y,0,99,762,416,1210,397,TB_inci_0_99,inci,397
+ZAF,2020.5,all,all,all,all,Ds,inflow,"Tm,TBp, TBtr_LfLsDs, TBtr_RDs",all,all,all,all,all,stock,NA,1e5*x/y,0,99,554,388,749,180.5,TB_inci_0_99,inci,180.5
+ZAF,2020.5,all,all,all,all,Ds,inflow,"Tm,TBp, TBtr_LfLsDs, TBtr_RDs",all,all,all,all,all,stock,NA,1e5*x/y,0,14,176,111,240,64.5,TB_inci_0_14,inci,64.5
+ZAF,2020.5,all,all,all,all,Ds,inflow,"Tm,TBp, TBtr_LfLsDs, TBtr_RDs",all,all,all,all,all,stock,NA,1e5*x/y,15,99,706,455,959,252,TB_inci_15_99,inci,252
+ZAF,2000.5,all,all,all,all,T,inflow,TBtr_init,all,all,all,all,all,stock,NA,1e5*x/y,0,99,336,268.8,403.2,67.2,TB_notif_0_99,inci,67.2
+ZAF,2020.5,all,all,all,all,T,inflow,TBtr_init,all,all,all,all,all,stock,NA,1e5*x/y,0,99,322,257.6,386.4,64.4,TB_notif_0_99,inci,64.4
+ZAF,2020.5,all,all,all,all,T,inflow,TBtr_init,all,all,all,all,all,stock,NA,1e5*x/y,0,14,79,63,95,16,TB_notif_0_14,inci,16
+ZAF,2020.5,all,all,all,all,T,inflow,TBtr_init,all,all,all,all,all,stock,NA,1e5*x/y,15,99,420,336,504,84,TB_notif_15_99,inci,84
+ZAF,2000.5,all,all,all,all,TBdead,inflow,"TBp,TBtr_died",all,all,all,all,all,stock,NA,1e5*x/y,0,99,58,56,61,2.5,TB_deaths_noHIV_0_99,inci,2.5
+ZAF,2020.5,all,all,all,all,TBdead,inflow,"TBp,TBtr_died",all,all,all,all,all,stock,NA,1e5*x/y,0,99,42,17,78,30.5,TB_deaths_noHIV_0_99,inci,30.5
+ZAF,2000.5,all,all,all,"HIVu1, HIVu2,HIVd1, HIVd2,ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,all,all,all,all,all,stock,NA,x/y,0,14,0.009,0.005,0.012,0.0035,HIV_prev_0_14,ratio,0.0035
+ZAF,2020.5,all,all,all,"HIVu1, HIVu2,HIVd1, HIVd2,ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,all,all,all,all,all,stock,NA,x/y,0,14,0.018,0.012,0.032,0.01,HIV_prev_0_14,ratio,0.01
+ZAF,2000.5,all,all,all,"HIVu1, HIVu2,HIVd1, HIVd2,ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,all,all,all,all,all,stock,NA,x/y,15,99,0.101,0.061,0.138,0.0385,HIV_prev_15_99,ratio,0.0385
+ZAF,2020.5,all,all,all,"HIVu1, HIVu2,HIVd1, HIVd2,ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,all,all,all,all,all,stock,NA,x/y,15,99,0.177,0.117,0.225,0.054,HIV_prev_15_99,ratio,0.054
+ZAF,2010.5,all,all,all,"HIVd1, HIVd2,ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,all,all,all,"HIVu1, HIVu2,HIVd1, HIVd2,ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,x/y,0,14,0.38,0.23,0.55,0.16,HIV_diag_0_14,ratio,0.16
+ZAF,2020.5,all,all,all,"HIVd1, HIVd2,ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,all,all,all,"HIVu1, HIVu2,HIVd1, HIVd2,ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,x/y,0,14,0.75,0.47,1,0.265,HIV_diag_0_14,ratio,0.265
+ZAF,2010.5,all,all,all,"HIVd1, HIVd2,ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,all,all,all,"HIVu1, HIVu2,HIVd1, HIVd2,ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,x/y,15,99,0.62,0.39,0.83,0.22,HIV_diag_15_99,ratio,0.22
+ZAF,2020.5,all,all,all,"HIVd1, HIVd2,ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,all,all,all,"HIVu1, HIVu2,HIVd1, HIVd2,ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,x/y,15,99,0.93,0.62,1,0.19,HIV_diag_15_99,ratio,0.19
+ZAF,2010.5,all,all,all,"ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,all,all,all,"HIVu1, HIVu2,HIVd1, HIVd2,ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,x/y,0,14,0.24,0.14,0.34,0.1,HIV_artcov_0_14,ratio,0.1
+ZAF,2020.5,all,all,all,"ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,all,all,all,"HIVu1, HIVu2,HIVd1, HIVd2,ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,x/y,0,14,0.47,0.3,0.81,0.255,HIV_artcov_0_14,ratio,0.255
+ZAF,2010.5,all,all,all,"ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,all,all,all,"HIVu1, HIVu2,HIVd1, HIVd2,ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,x/y,15,99,0.23,0.15,0.31,0.08,HIV_artcov_15_99,ratio,0.08
+ZAF,2020.5,all,all,all,"ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,all,all,all,"HIVu1, HIVu2,HIVd1, HIVd2,ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,x/y,15,99,0.73,0.48,0.93,0.225,HIV_artcov_15_99,ratio,0.225
+ZAF,2010.5,all,all,all,"ARTs1, ARTs2",all,stock,NA,all,all,all,"ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,x/y,0,14,0.7,0.42,1,0.29,HIV_artsup_0_14,ratio,0.29
+ZAF,2020.5,all,all,all,"ARTs1, ARTs2",all,stock,NA,all,all,all,"ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,x/y,0,14,0.7,0.44,1,0.28,HIV_artsup_0_14,ratio,0.28
+ZAF,2010.5,all,all,all,"ARTs1, ARTs2",all,stock,NA,all,all,all,"ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,x/y,15,99,0.8,0.51,1,0.245,HIV_artsup_15_99,ratio,0.245
+ZAF,2020.5,all,all,all,"ARTs1, ARTs2",all,stock,NA,all,all,all,"ARTn1, ARTn2, ARTs1, ARTs2",all,stock,NA,x/y,15,99,0.92,0.61,1,0.195,HIV_artsup_15_99,ratio,0.195
+ZAF,2000.5,all,all,all,"HIVu1, HIVu2,HIVd1, HIVd2,ARTn1, ARTn2, ARTs1, ARTs2",Ds,inflow,"Tm,TBp, TBtr_LfLsDs, TBtr_RDs",all,all,all,all,all,stock,NA,1e5*x/y,0,99,573,294,943,324.5,TB_newhivinf_0_99,inci,324.5
+ZAF,2020.5,all,all,all,"HIVu1, HIVu2,HIVd1, HIVd2,ARTn1, ARTn2, ARTs1, ARTs2",Ds,inflow,"Tm,TBp, TBtr_LfLsDs, TBtr_RDs",all,all,all,all,all,stock,NA,1e5*x/y,0,99,394,276,533,128.5,TB_newhivinf_0_99,inci,128.5
+ZAF,2000.5,all,all,all,all,TBHIVdead,inflow,"TBp,TBtr_died",all,all,all,all,all,stock,NA,1e5*x/y,0,99,258,144,405,130.5,TBHIV_morthiv_0_99,inci,130.5
+ZAF,2020.5,all,all,all,all,TBHIVdead,inflow,"TBp,TBtr_died",all,all,all,all,all,stock,NA,1e5*x/y,0,99,61,30,104,37,TBHIV_morthiv_0_99,inci,37
+ZAF,2000.5,all,all,all,HIVdead,all,inflow,"HIVp,HIVtr_HIVARTdead",all,all,all,all,all,stock,NA,1e5*x/y,0,99,1,1,2,-1,HIV_related_0_99,inci,-1
+ZAF,2020.5,all,all,all,HIVdead,all,inflow,"HIVp,HIVtr_HIVARTdead",all,all,all,all,all,stock,NA,1e5*x/y,0,99,1,1,2,-1,HIV_related_0_99,inci,-1
+ZAF,2000.5,,,,,,HIV_related_0_99,,,,,,,TBHIV_morthiv_0_99,,x+y,0,99,289,162,445,141.5,HIV_plus_TBHIVdeaths_0_99,inci,141.5
+ZAF,2020.5,,,,,,HIV_related_0_99,,,,,,,TBHIV_morthiv_0_99,,x+y,0,99,140,73,253,90,HIV_plus_TBHIVdeaths_0_99,inci,90
+ZAF,2019.5,all,all,all,all,Ds,inflow,"Tm,TBp, TBtr_LfLsDs,TBtr_RDs",all,all,all,all,R,inflow,"TBtr_died,TBtr_nodead",x*y,0,99,1,1,2,-1,TR*(RD+LsD+LfD),inci,-1
+ZAF,2019.5,all,all,all,all,R,inflow,TBp,all,all,all,all,Ds,inflow,TBtr_LfLsDs,x*y,0,99,1,1,2,-1,(DcR+DsR)*(LsD+LfD),inci,-1
+ZAF,2019.5,all,all,all,all,Ds,inflow,TBtr_RDs,all,all,all,all,R,inflow,"TBtr_died,TBtr_nodead",x*y,0,99,1,1,2,-1,RD*TR,inci,-1
+ZAF,2019.5,,,,,,RD*TR,TR*(RD+LsD+LfD),,,,,,,(DcR+DsR)*(LsD+LfD),x/(a+b),0,99,0.12,0.042893,0.2,0.0785535,prop_retreated,inci,0.0785535
