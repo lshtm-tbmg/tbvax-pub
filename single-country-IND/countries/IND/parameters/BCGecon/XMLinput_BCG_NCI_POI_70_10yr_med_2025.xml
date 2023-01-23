@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TB.Vx.model.inputfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../TB-Vx-schema-T.xsd">
+  <simulation from.year="1900" thru.year="2052">
+    <options>
+      <numerical.integration method="ode45" atol="0" rtol="1e-7" min.value.for.state.var="-0.1"/>
+      <intervention.start from.incidence.data="VXa"/>
+    </options>
+    <demography country.code="ignored" rescale.population="1950">
+      <from.data>
+        <population file="data/demographics.csv"/>
+        <birthrate from.population.data="true"/>
+        <mortality file="data/deathrates.csv"/>
+      </from.data>
+    </demography>
+    <contact.matrix file="data/all_contacts_2020.txt"/>
+  </simulation>
+  <output>
+    <detailed.output years="seq(2024,2051,1)" age.group.lower.limits="c(0:80,90)" econ.output="true" suppress.zeros.in.stocks="false" suppress.zeros.in.flows="false" combine.stocks.and.flows="false">
+      <flows dim="TB" incidence="true" transmission="true" progression="true" treatment="true"/>
+      <flows dim="HIV" incidence="false" transmission="false" progression="false" treatment="false"/>
+      <flows dim="VXa" incidence="true" transmission="false" progression="true" treatment="false"/>
+    </detailed.output>
+  </output>
+  <ages lower.limits="c(0:80,90)"/>
+  <VXa>
+    <VXa.stages>
+      <stage name="never" fraction.at.birth="1"/>
+      <stage name="prev1"/>
+      <stage name="prev2"/>
+      <stage name="prev3"/>
+      <stage name="waned"/>
+      <stage name="vac1"/>
+      <stage name="vac2"/>
+      <stage name="vac3"/>
+      <stage name="recvcount"/>
+    </VXa.stages>
+    <VXa.incidence>
+      <incidence.data file="data/BCGvx/BCG_scaleup_med_never_prev1.txt" times="2024,2025" values="1,1" proportions="false" denominator="susc" once.per.year="true"/>
+      <incidence.data file="data/BCGvx/BCG_scaleup_med_waned_prev1.txt" times="2024,2025" values="1,1" proportions="false" denominator="susc" once.per.year="true"/>
+      <incidence.data file="data/BCGvx/BCG_scaleup_med_prev1_prev2.txt" times="2024,2025" values="1,1" proportions="false" denominator="susc" once.per.year="true"/>
+      <incidence.data file="data/BCGvx/BCG_scaleup_med_prev2_prev3.txt" times="2024,2025" values="1,1" proportions="false" denominator="susc" once.per.year="true"/>
+      <incidence.data file="data/BCGvx/BCG_scaleup_med_never_vac1.txt" times="2024,2025" values="1,1" proportions="false" denominator="susc" once.per.year="true"/>
+      <incidence.data file="data/BCGvx/BCG_scaleup_med_waned_vac1.txt" times="2024,2025" values="1,1" proportions="false" denominator="susc" once.per.year="true"/>
+      <incidence.data file="data/BCGvx/BCG_scaleup_med_vac1_vac2.txt" times="2024,2025" values="1,1" proportions="false" denominator="susc" once.per.year="true"/>
+      <incidence.data file="data/BCGvx/BCG_scaleup_med_vac2_vac3.txt" times="2024,2025" values="1,1" proportions="false" denominator="susc" once.per.year="true"/>
+    </VXa.incidence>
+    <VXa.progression>
+      <VXa.parameter TB.stage="Un" name="w" value="0.1"/>
+      <VXa.parameter TB.stage="L0" name="w" value="0.1"/>
+      <VXa.parameter TB.stage="Lf" name="w" value="0.1"/>
+      <VXa.parameter TB.stage="Ls" name="w" value="0.1"/>
+      <VXa.parameter TB.stage="Ds" name="w" value="10"/>
+      <VXa.parameter TB.stage="Dc" name="w" value="10"/>
+      <VXa.parameter TB.stage="T" name="w" value="10"/>
+      <VXa.parameter TB.stage="R" name="w" value="0.1"/>
+      <VXa.parameter TB.stage="TBdead" name="w" value="0"/>
+      <VXa.parameter TB.stage="Rdead" name="w" value="0"/>
+      <VXa.parameter TB.stage="Dscount" name="w" value="0"/>
+      <VXa.parameter TB.stage="TTBdeadcount" name="w" value="0"/>
+      <VXa.parameter TB.stage="DcTcount" name="w" value="0"/>
+      <VXa.parameter TB.stage="RDscount" name="w" value="0"/>
+      <VXa.parameter TB.stage="TRcount" name="w" value="0"/>
+      <VXa.parameter TB.stage="TDccount" name="w" value="0"/>
+      <VXa.parameter TB.stage="LfLsDscount" name="w" value="0"/>
+      <VXa.parameter TB.stage="DsDcRcount" name="w" value="0"/>
+      <transition.matrix>
+        <transition from="vac1" to="waned" rate="w"/>
+        <transition from="vac2" to="waned" rate="w"/>
+        <transition from="vac3" to="waned" rate="w"/>
+      </transition.matrix>
+    </VXa.progression>
+  </VXa>
+  <SES>
+    <SES.stages>
+      <stage name="low" fraction.at.birth="0.4"/>
+      <stage name="high" fraction.at.birth="0.6"/>
+    </SES.stages>
+  </SES>
+  <RISK>
+    <RISK.stages>
+      <stage name="risk1"/>
+      <!--<stage name="risk0" /> -->
+    </RISK.stages>
+    <!--
+    <RISK.progression>
+      <age.groups>
+        <age.group name="A0"/>
+      </age.groups>
+      <RISK.parameter name="alpha" value="0.05" />
+      <RISK.parameter name="beta" value="0.2" />
+      <transition.matrix>
+        <transition from="risk0" to="risk1" rate="alpha" />
+        <transition from="risk1" to="risk0" rate="beta" />
+      </transition.matrix>
+    </RISK.progression>
+    -->
+  </RISK>
+  <HIV>
+    <HIV.stages>
+      <stage name="HIV-" fraction.at.birth="1"/>
+    </HIV.stages>
+  </HIV>
+  <TB>
+    <TB.stages>
+      <stage name="Un" fraction.at.birth="1"/>
+      <stage name="L0"/>
+      <stage name="Lf"/>
+      <stage name="Ls"/>
+      <stage name="Ds"/>
+      <stage name="Dc"/>
+      <stage name="T"/>
+      <stage name="R"/>
+      <stage name="TBdead"/>
+      <stage name="Rdead"/>
+      <stage name="Dscount"/>
+      <stage name="TTBdeadcount"/>
+      <stage name="DcTcount"/>
+      <stage name="RDscount"/>
+      <stage name="TRcount"/>
+      <stage name="TDccount"/>
+      <stage name="LfLsDscount"/>
+      <stage name="DsDcRcount"/>
+    </TB.stages>
+    <seeded.infections name="multiplier" value="1.0">
+      <seeded.infection fraction="0.246" age.from="0" age.thru="99" stage="L0"/>
+      <seeded.infection fraction="0.0188" age.from="0" age.thru="99" stage="Lf"/>
+      <seeded.infection fraction="0.198" age.from="0" age.thru="99" stage="Ls"/>
+      <seeded.infection fraction="0.00317" age.from="0" age.thru="99" stage="Ds"/>
+      <seeded.infection fraction="0.00265" age.from="0" age.thru="99" stage="Dc"/>
+      <seeded.infection fraction="0.0484" age.from="0" age.thru="99" stage="R"/>
+    </seeded.infections>
+    <TB.progression>
+      <age.groups>
+        <age.group name="A0"/>
+        <age.group name="A15"/>
+      </age.groups>
+      <TB.parameter VXa.stage="never" name="pV" value="0"/>
+      <TB.parameter VXa.stage="prev1" name="pV" value="0"/>
+      <TB.parameter VXa.stage="prev2" name="pV" value="0"/>
+      <TB.parameter VXa.stage="prev3" name="pV" value="0"/>
+      <TB.parameter VXa.stage="waned" name="pV" value="0"/>
+      <TB.parameter VXa.stage="vac1" name="pV" value="0"/>
+      <TB.parameter VXa.stage="vac2" name="pV" value="0"/>
+      <TB.parameter VXa.stage="vac3" name="pV" value="0"/>
+      <TB.parameter VXa.stage="recvcount" name="pV" value="0"/>
+      <TB.parameter SES.stage="low" name="pE" value="0"/>
+      <TB.parameter SES.stage="high" name="pE" value="0.573"/>
+      <TB.parameter name="sage" age.group="A0" value="1"/>
+      <TB.parameter name="sage" age.group="A15" value="0.5"/>
+      <TB.parameter name="j1" age.group="A0" value="0.5"/>
+      <TB.parameter name="j1" age.group="A15" value="1"/>
+      <TB.parameter name="j2" age.group="A0" value="0.5"/>
+      <TB.parameter name="j2" age.group="A15" value="1"/>
+      <TB.parameter name="j3" age.group="A0" value="0.5"/>
+      <TB.parameter name="j3" age.group="A15" value="1"/>
+      <TB.parameter name="j4" age.group="A0" value="0.5"/>
+      <TB.parameter name="j4" age.group="A15" value="1"/>
+      <TB.parameter name="omegaFS" value="0.5"/>
+      <TB.parameter name="omegaS0" value="0.5"/>
+      <TB.parameter name="tau" value="0.5"/>
+      <TB.parameter name="theta" value="0.0903"/>
+      <TB.parameter name="sigma" value="0.6325e-3"/>
+      <TB.parameter name="rho" value="0.04"/>
+      <TB.parameter name="zeta" value="1"/>
+      <TB.parameter name="chi" value="0.175"/>
+      <TB.parameter name="eta" value="0.7"/>
+      <TB.parameter name="kappa" value="0.13515014"/>
+      <TB.parameter name="sfr" value="0.95890571"/>
+      <TB.parameter name="muK" value="0.015"/>
+      <TB.parameter name="muDc" value="0.089"/>
+      <TB.parameter name="rhomin" value="0.0001"/>
+      <TB.parameter name="thetamin" value="0.0696"/>
+      <TB.parameter name="sigmamin" value="0.000135"/>
+      <transition.matrix>
+        <transition from="Lf" to="Ls" rate="omegaFS"/>
+        <transition from="Ls" to="L0" rate="omegaS0"/>
+        <transition from="Ds" to="Dc" rate="zeta"/>
+        <transition from="Ds" to="R" rate="chi"/>
+        <transition from="Dc" to="R" rate="chi"/>
+        <transition from="Ds" to="DsDcRcount" rate="chi"/>
+        <transition from="Dc" to="DsDcRcount" rate="chi"/>
+        <transition from="Dc" to="TBdead" rate="muDc*sage"/>
+        <transition from="R" to="Rdead" rate="muK*sage*0.22"/>
+      </transition.matrix>
+      <treatment.matrix name="RDs">
+        <transition from="R" to="Ds" rate="(1-pV)*(1-pE)*max(rhomin,rho*j3)"/>
+        <transition from="R" to="Dscount" rate="(1-pV)*(1-pE)*max(rhomin,rho*j3)"/>
+        <transition from="R" to="RDscount" rate="(1-pV)*(1-pE)*max(rhomin,rho*j3)"/>
+      </treatment.matrix>
+      <treatment.matrix name="LfLsDs">
+        <transition from="Lf" to="Ds" rate="(1-pV)*(1-pE)*max(thetamin,theta*j1)"/>
+        <transition from="Ls" to="Ds" rate="(1-pV)*(1-pE)*max(sigmamin,sigma*j2)"/>
+        <transition from="Lf" to="Dscount" rate="(1-pV)*(1-pE)*max(thetamin,theta*j1)"/>
+        <transition from="Ls" to="Dscount" rate="(1-pV)*(1-pE)*max(sigmamin,sigma*j2)"/>
+        <transition from="Lf" to="LfLsDscount" rate="(1-pV)*(1-pE)*max(thetamin,theta*j1)"/>
+        <transition from="Ls" to="LfLsDscount" rate="(1-pV)*(1-pE)*max(sigmamin,sigma*j2)"/>
+      </treatment.matrix>
+      <treatment.matrix name="init">
+        <transition from="Dc" to="T" rate="eta*j4/(1-pE)"/>
+        <transition from="Dc" to="DcTcount" rate="eta*j4/(1-pE)"/>
+        <multiplier name="etamul" times="1959, 1960, 1961, 1962, 1963, 1964, 1965, 1966, 1967, 1968, 1969, 1970, 1971,                                          1972, 1973, 1974, 1975, 1976, 1977, 1978, 1979, 1980, 1981, 1982, 1983, 1984,                                                   1985, 1986, 1987, 1988, 1989, 1990, 1991, 1992, 1993, 1994, 1995, 1996, 1997,                                                   1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010,                                                   2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019" values="0, 0.002731961, 0.003334807, 0.004070138, 0.004966802, 0.006059801, 0.007391541,                                                    0.009013299, 0.010986943, 0.013386918, 0.016302499, 0.019840306, 0.024127021, 0.029312231,                                                    0.035571189, 0.043107255, 0.052153563, 0.062973356, 0.07585818, 0.091122961, 0.109096821,                                                     0.130108474, 0.154465265, 0.182425524, 0.214165017, 0.249739894, 0.289050497, 0.331812228,                                                     0.377540669, 0.425557483, 0.475020813, 0.524979187, 0.574442517, 0.622459331, 0.668187772,                                                     0.710949503, 0.750260106, 0.785834983, 0.817574476, 0.845534735, 0.869891526, 0.890903179,                                                     0.908877039, 0.92414182, 0.937026644, 0.947846437, 0.956892745, 0.964428811, 0.970687769,                                                     0.975872979, 0.980159694, 0.983697501, 0.986613082, 0.989013057, 0.990986701, 0.992608459,                                            0.993940199, 0.995033198, 0.995929862, 0.996665193, 0.997268039"/>
+      </treatment.matrix>
+      <treatment.matrix name="nodeadreported">
+        <transition from="T" to="Dc" rate="(0.04/tau)*(1-kappa*sage)"/>
+        <transition from="T" to="R" rate="(0.96/tau)*(1-kappa*sage)"/>
+        <transition from="T" to="TRcount" rate="(0.96/tau)*(1-kappa*sage)"/>
+        <transition from="T" to="TDccount" rate="(0.04/tau)*(1-kappa*sage)"/>
+        <multiplier name="ft" times="2012,2013,2014,2015,2016,2017,2018,2019,2020" values="0.60,0.63,0.68,0.67,0.73,0.77,0.80,0.83,0.87"/>
+      </treatment.matrix>
+      <treatment.matrix name="nodeadnotreported">
+        <transition from="T" to="Dc" rate="(0.60/tau)*(1-kappa*sage)"/>
+        <transition from="T" to="R" rate="(0.40/tau)*(1-kappa*sage)"/>
+        <transition from="T" to="TRcount" rate="(0.40/tau)*(1-kappa*sage)"/>
+        <transition from="T" to="TDccount" rate="(0.60/tau)*(1-kappa*sage)"/>
+        <multiplier name="oneminusft" times="2012,2013,2014,2015,2016,2017,2018,2019,2020" values="0.40,0.37,0.32,0.33,0.27,0.23,0.20,0.17,0.13"/>
+      </treatment.matrix>
+      <treatment.matrix name="died">
+        <transition from="T" to="TBdead" rate="kappa*sage/tau"/>
+        <transition from="T" to="TTBdeadcount" rate="kappa*sage/tau"/>
+        <multiplier name="kappat" times="1950,2000,2019" values="2,1.5,1"/>
+      </treatment.matrix>
+    </TB.progression>
+    <TB.infectivity>
+      <age.groups>
+        <age.group name="A0"/>
+        <age.group name="A15"/>
+      </age.groups>
+      <TB.parameter name="infs" value="0.83"/>
+      <TB.parameter name="infc" value="1"/>
+      <TB.parameter name="ep" value="0.1971997625"/>
+      <infectivity.matrix>
+        <infectivity stage="Ds" value="(1-ep)*infs"/>
+        <infectivity stage="Dc" value="(1-ep)*infc"/>
+      </infectivity.matrix>
+    </TB.infectivity>
+    <TB.transmission>
+      <age.groups>
+        <age.group name="A0"/>
+        <age.group name="A15"/>
+      </age.groups>
+      <TB.parameter SES.stage="low" name="pE" value="0"/>
+      <TB.parameter SES.stage="high" name="pE" value="0.573"/>
+      <TB.parameter VXa.stage="never" name="pV" value="0"/>
+      <TB.parameter VXa.stage="prev1" name="pV" value="0"/>
+      <TB.parameter VXa.stage="prev2" name="pV" value="0"/>
+      <TB.parameter VXa.stage="prev3" name="pV" value="0"/>
+      <TB.parameter VXa.stage="waned" name="pV" value="0"/>
+      <TB.parameter VXa.stage="vac1" name="pV" value="0.7"/>
+      <TB.parameter VXa.stage="vac2" name="pV" value="0.7"/>
+      <TB.parameter VXa.stage="vac3" name="pV" value="0.7"/>
+      <TB.parameter VXa.stage="recvcount" name="pV" value="0"/>
+      <TB.parameter name="pT" value="0.0007"/>
+      <TB.parameter name="pR" value="0.725"/>
+      <TB.parameter name="omegaFS" value="0.5"/>
+      <TB.parameter name="theta" value="0.0903"/>
+      <TB.parameter name="j1" age.group="A0" value="0.5"/>
+      <TB.parameter name="j1" age.group="A15" value="1"/>
+      <TB.parameter name="thetamin" value="0.0696"/>
+      <transition.matrix>
+        <transition from="Un" to="Lf" rate="(1-pV)*(1-pE)*pT"/>
+        <transition from="L0" to="Lf" rate="(1-pV)*(1-pE)*pT*(1-pR)"/>
+        <transition from="Ls" to="Lf" rate="(1-pV)*(1-pE)*pT*(1-pR)"/>
+        <transition from="R" to="Ds" rate="(1-pV)*(1-pE)*pT*(1-pR)*((1-pE)*max(thetamin,j1*theta)/((1-pE)*max(thetamin,j1*theta)+omegaFS))"/>
+        <transition from="R" to="Dscount" rate="(1-pV)*(1-pE)*pT*(1-pR)*((1-pE)*max(thetamin,j1*theta)/((1-pE)*max(thetamin,j1*theta)+omegaFS))"/>
+        <transition from="R" to="RDscount" rate="(1-pV)*(1-pE)*pT*(1-pR)*((1-pE)*max(thetamin,j1*theta)/((1-pE)*max(thetamin,j1*theta)+omegaFS))"/>
+      </transition.matrix>
+      <contact.rate.multiplier name="beta" times="1800,2020" values="1,1"/>
+    </TB.transmission>
+  </TB>
+</TB.Vx.model.inputfile>
