@@ -1,0 +1,4 @@
+﻿xml,input,runtype
+XMLinput_epi.xml,input.csv,baseline
+XMLinput_infant.xml,input.csv,infant_vaccine
+XMLinput_adult.xml,input.csv,adult_vaccine
