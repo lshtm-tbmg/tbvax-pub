@@ -1,6 +1,6 @@
 #-------------------
 # Generate Impact Output Example
-# 21 July 2023
+# Updated 17 August 2023
 # Rebecca Clark
 #-------------------
 
@@ -14,7 +14,6 @@ suppressPackageStartupMessages({
   library(renv)
   library(digest)
   library(log4r)
-  library(git2r)
   library(arrow)
   library(logger)
   
@@ -30,6 +29,7 @@ cc <- "IDN"
 print(cc)
 
 # Load in the vaccine scenarios to run
+# If you want to run more scenarios, add them to the csv
 vxscenarios <- "epi_vx_scenarios.csv"
 vx_scenarios <- fread(here("./", vxscenarios))
 
@@ -37,6 +37,8 @@ vx_scenarios <- fread(here("./", vxscenarios))
 # Load in the fitted parameters for the country
 parameters <- fread(paste0("./param_sets/", cc, "_params.csv"))
 
+# if you want to subset the parameters, uncomment this
+# parameters <- parameters[sample(.N, 200)]
 
 
 # 3. Make Directories to save output
@@ -94,15 +96,7 @@ for (j in 1:nrow(parameters)){
 }
 
 
-
-
 # ---- end
-
-
-
-
-
-
 
 
 

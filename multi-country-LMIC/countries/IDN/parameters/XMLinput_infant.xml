@@ -49,7 +49,6 @@
       <VXa.parameter TB.stage="TBdead" name="wane" value="0"/>
       <VXa.parameter TB.stage="Rdead" name="wane" value="0"/>
       <VXa.parameter TB.stage="Dscount" name="wane" value="0"/>
-      <VXa.parameter TB.stage="TBdeadcount" name="wane" value="0"/>
       <VXa.parameter TB.stage="DcTcount" name="wane" value="0"/>
       <VXa.parameter TB.stage="TRcount" name="wane" value="0"/>
       <VXa.parameter TB.stage="TDccount" name="wane" value="0"/>
@@ -103,8 +102,6 @@
       <stage name="Rdead"/>
       <stage name="Dscount"/>
       <!-- all entry into Ds -->
-      <stage name="TBdeadcount"/>
-      <!-- all entry into TBdead -->
       <stage name="DcTcount"/>
       <!-- treatment init from Dc -->
       <stage name="TRcount"/>
@@ -166,7 +163,6 @@
         <transition from="Ds" to="R" rate="chi"/>
         <transition from="Dc" to="R" rate="chi"/>
         <transition from="Dc" to="TBdead" rate="muDc*sage"/>
-        <transition from="Dc" to="TBdeadcount" rate="muDc*sage"/>
         <transition from="R" to="Rdead" rate="muK*sage*0.22"/>
       </transition.matrix>
       <treatment.matrix name="RDs">
@@ -192,7 +188,6 @@
       </treatment.matrix>
       <treatment.matrix name="died">
         <transition from="T" to="TBdead" rate="kappa*sage/tau"/>
-        <transition from="T" to="TBdeadcount" rate="kappa*sage/tau"/>
         <transition from="T" to="TTBdeadcount" rate="kappa*sage/tau"/>
       </treatment.matrix>
     </TB.progression>
