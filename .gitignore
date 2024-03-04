@@ -1,0 +1,29 @@
+# History files
+.Rhistory
+.Rapp.history
+
+# Session Data files
+.RData
+
+# User-specific files
+.Ruserdata
+
+# RStudio files
+.Rproj.user/
+
+# R Environment Variables
+.Renviron
+
+# OSX Desktop Services Store
+.DS_Store
+**/.DS_Store
+*/*/.DS_Store
+*/*/*/.DS_Store
+*/*/*/*/.DS_Store
+temp/temp.xml
+*_output/
+output/*
+econ_output/*
+Countries/*/logs/*
+output_mcmc
+*output*/

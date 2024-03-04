@@ -1,6 +1,6 @@
 #-------------------
 # Generate Impact Output Example
-# Updated 17 August 2023
+# Updated 4 March 2024
 # Rebecca Clark
 #-------------------
 
@@ -19,19 +19,21 @@ suppressPackageStartupMessages({
   
   source(here("R", "include-v11.R"), model)
   source(here("R", "TBVx-run-v1.R"), model)
-  source(here("R", "workflow", "run_param_set_epi.R"))
+  source(here("R", "workflow", "run_param_set_epi_econ.R"))
   
 })
 
 
 # 2. Load in the country code and vx_scenarios file
-cc <- "IDN"
+cc <- "PNG"
 print(cc)
 
 # Load in the vaccine scenarios to run
 # If you want to run more scenarios, add them to the csv
-vxscenarios <- "epi_vx_scenarios.csv"
+vxscenarios <- "./processing_files/vx_scenarios.csv"
 vx_scenarios <- fread(here("./", vxscenarios))
+rr_pct_data <- fread("./processing_files/RRTB_proportions.csv")
+rr_pct <- rr_pct_data[country == cc]$rr_pct
 
 
 # Load in the fitted parameters for the country
@@ -42,9 +44,24 @@ parameters <- fread(paste0("./param_sets/", cc, "_params.csv"))
 
 
 # 3. Make Directories to save output
-if(!dir.exists(here("epi_output"))) dir.create(here("epi_output"), showWarnings = F)
-if(!dir.exists(here("epi_output/n_epi"))) dir.create(here("epi_output/n_epi"), showWarnings = F)
-
+if (T){
+  if(!dir.exists(here("countries", cc, "logs"))) dir.create(here("countries", cc, "logs"), showWarnings = F)
+  if(!dir.exists(here("countries", cc, "output"))) dir.create(here("countries", cc, "output"), showWarnings = F)
+  
+  if(!dir.exists(here("econ_output"))) dir.create(here("econ_output"), showWarnings = F)
+  
+  if(!dir.exists(here("econ_output/cc_TB"))) dir.create(here("econ_output/cc_TB"), showWarnings = F)
+  dir.create(here(paste0("econ_output/cc_TB/", cc, "_TB/")), showWarnings = F)
+  
+  if(!dir.exists(here("econ_output/cc_TB_HIV"))) dir.create(here("econ_output/cc_TB_HIV"), showWarnings = F)
+  dir.create(here(paste0("econ_output/cc_TB_HIV/", cc, "_TB_HIV/")), showWarnings = F)
+  
+  if(!dir.exists(here("econ_output/cc_alldeaths"))) dir.create(here("econ_output/cc_alldeaths"), showWarnings = F)
+  dir.create(here(paste0("econ_output/cc_alldeaths/", cc, "_alldeaths/")), showWarnings = F)
+  
+  if(!dir.exists(here("epi_output"))) dir.create(here("epi_output"), showWarnings = F)
+  if(!dir.exists(here("epi_output/n_epi"))) dir.create(here("epi_output/n_epi"), showWarnings = F)
+}
 
 # 4. Generate the output and write out 
 for (j in 1:nrow(parameters)){
@@ -71,6 +88,9 @@ for (j in 1:nrow(parameters)){
     
     # Run through all the vaccine scenarios for each parameter set
     cc_n_epi_param <- list()
+    cc_TB_param <- list()
+    cc_TB_HIV_param <- list()
+    cc_deaths_param <- list()
     
     for (i in 1:nrow(vx_scenarios)){
       
@@ -80,15 +100,33 @@ for (j in 1:nrow(parameters)){
       print(paste0("vaccine scenario number ", i))
       
       # run the model with the row of parameters
-      vx_scen_output <- run_param_set_epi(model, cc, params, params_uid, vx_chars)
+      vx_scen_output <- run_param_set_epi_econ(model, cc, params, params_uid, vx_chars, rr_pct)
       
       cc_n_epi_param[[i]]  <- vx_scen_output[["n_epi"]]
+      cc_TB_param[[i]] <- vx_scen_output[["cc_TB"]]
+      cc_TB_HIV_param[[i]] <- vx_scen_output[["cc_TB_HIV"]]
+      cc_deaths_param[[i]] <- vx_scen_output[["cc_deaths"]]
       
     }
     
     write_parquet(rbindlist(cc_n_epi_param), file.path("epi_output", "n_epi",
                                                        paste0(cc, "_", params_uid, ".parquet")))
     rm(cc_n_epi_param)
+    
+    write_parquet(rbindlist(cc_TB_param), file.path("econ_output", "cc_TB", paste0(cc, "_TB"),
+                                                    paste0(params_uid, ".parquet")))
+    rm(cc_TB_param)
+    gc(full=TRUE)
+    
+    write_parquet(rbindlist(cc_TB_HIV_param), file.path("econ_output", "cc_TB_HIV", paste0(cc, "_TB_HIV"),
+                                                        paste0(params_uid, ".parquet")))
+    rm(cc_TB_HIV_param)
+    gc(full=TRUE)
+    
+    write_parquet(rbindlist(cc_deaths_param), file.path("econ_output", "cc_alldeaths", paste0(cc, "_alldeaths"),
+                                                        paste0(params_uid, ".parquet")))
+    rm(cc_deaths_param)
+    gc(full=TRUE)
     
     print(paste0("end time for parameter set ", j, " = ", Sys.time()))
     

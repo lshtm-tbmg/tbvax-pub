@@ -63,7 +63,7 @@ run_param_set_epi <- function(model, cc, params, params_uid, vx_chars) {
   tb_vxa <- tb_vxa[age_from == 0  & age_thru == 99, AgeGrp := "[0,99]"]
   tb_vxa <- tb_vxa[, !c("age_from", "age_thru")]
   
-  tb_vxa <- tb_vxa[(VXa == "vaccount" | VXa == "prevcount") & TB != "Rdead" & TB!= "TBdead" & HIV != "HIVdead"]
+  tb_vxa <- tb_vxa[(VXa == "vaccount" | VXa == "prevcount" | VXa == "recvcount") & TB != "Rdead" & TB!= "TBdead" & HIV != "HIVdead"]
   tb_vxa <- tb_vxa[,.(N_vac = abs(sum(value))), by = .(Country = country, Year = year, AgeGrp)]
   tb_vxa <- tb_vxa[, Year := floor(Year)]
   
