@@ -1,0 +1,4 @@
+﻿scenario,input,xml,runtype
+baseline,input_SCI_vx.csv,XMLinput_SCI_epi.xml,baseline
+basecase_BCG_SCI,input_SCI_vx.csv,XMLinput_SCI_BCG.xml,basecase_BCG_SCI
+basecase_M72_SCI,input_SCI_vx.csv,XMLinput_SCI_M72.xml,basecase_M72_SCI
