@@ -1,6 +1,8 @@
 # tbvax-pub
 
-- Folder `single-country-IND` contains model code and scripts to demonstrate the calibrated tbvax
+- Folder `subnational-DEL-GUJ` contains model code and scripts to demonstrate the calibrated tbvax
+  model for Delhi and Gujarat, India
+  - Folder `single-country-IND` contains model code and scripts to demonstrate the calibrated tbvax
   model for India
 - Folder `single-country-ZAF` contains model code and scripts to demonstrate the calibrated tbvax
   model for South Africa
